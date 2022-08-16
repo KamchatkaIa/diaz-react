@@ -18,7 +18,7 @@ const Footer = () => {
               </div>
           </div>
           <div className="w-full bg-white flex wrap justify-around flex-col content-between px-10 py-6 md:flex-row md:items-start">
-              <div className="flex nowrap justify-center flex-col py-3 text-clamp-p2 leading-7 items-center">
+              <div className="flex nowrap justify-center flex-col py-3 text-clamp-p2 leading-7 items-center md:items-start md:text-left">
                   <h5 className="text-clamp-p2 font-bold">Servicio Relación Cliente</h5>
                   <Link href={'contacto'}>Contactanos</Link>
                   <Link href={'sucursales'}>Encontra tu Sucursal </Link>
@@ -37,10 +37,21 @@ const Footer = () => {
               </div>
               <div className="flex nowrap justify-center flex-col py-3 text-clamp-p2 leading-7 items-center md:items-start md:text-left">
                   <h5 className="text-clamp-p2 font-bold">Redes Sociales</h5>
-                  <Link href={'contacto'}>facebook</Link>
-                  <Link href={'sucursales'}>inst</Link>
-                  <Link href={'contacto'}>twitter</Link>
+                  <div className="flex flex-row nowrap gap-x-3 mt-3">
+                    <a href={'https://www.facebook.com/DiazRenault/'} target="_blank" rel="noopener noreferrer"><Image src={'/icons/facebook.svg'} width={30} height={30} /></a>
+                    <a href={'https://twitter.com/diazrenault'} target="_blank" rel="noopener noreferrer"><Image src={'/icons/twitter.svg'} width={30} height={30} /></a>
+                    <a href={'https://www.instagram.com/renaultdiaz/'} target="_blank" rel="noopener noreferrer"><Image src={'/icons/instagram.svg'} width={30} height={30} /></a>
+                    <a href={'https://www.youtube.com/channel/UC-Nufue3LqvO3r7HXqfVBRw'} target="_blank" rel="noopener noreferrer"><Image src={'/icons/youtube.svg'} width={30} height={30} /></a>
+                    <a href={'https://www.tiendadiazsa.com/'} target="_blank" rel="noopener noreferrer"><Image src={'/icons/buy.svg'} width={30} height={30} /></a>
+                    <a href={'contacto'} target="_blank" rel="noopener noreferrer"><Image src={'/icons/mail.svg'} width={30} height={30} /></a>
+                  </div>
               </div>
+          </div>
+          <div className="w-full bg-white text-gray-500 text-clamp-p2 text-center flex wrap justify-around flex-col content-between px-10 py-3 md:flex-row md:items-start md:justify-center border-t">
+            <p>Copyright 2017 - 2022
+            <Link href={'terminos-legales'}> Términos Legales.</Link>
+            </p>
+            <p>Todos los derechos reservados.</p>
           </div>
         </>
   )

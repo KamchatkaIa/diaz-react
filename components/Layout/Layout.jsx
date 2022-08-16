@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Nav from './Nav'
+import DesktopNav from './DesktopNav'
+import MobileNav from './MobileNav'
 import Footer from './Footer'
 const Layout = ({ children, title, description }) => {
   return (
@@ -9,7 +10,8 @@ const Layout = ({ children, title, description }) => {
                 <meta name="description" content={description} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Nav />
+            <DesktopNav />
+            <MobileNav />
             <div>
                 {children}
             </div>

@@ -17,3 +17,6 @@
 .text-clamp-p2{
     font-size: clamp(.8rem, 2.5vw, 1rem);
 }
+.top-11p{
+    top: 11%;
+}
