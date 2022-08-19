@@ -3,7 +3,7 @@ import NavLinks from './NavLinks'
 
 const Nav = () => {
   return (
-        <header className="flex-row flex-wrap justify-between bg-black px-1 h-20 content-center hidden lg:flex">
+        <header className="flex-row flex-wrap justify-between bg-black px-1 h-20 content-center hidden fixed w-full z-50 top-0 lg:flex">
           <div className="text-white flex justify-center pr-2 w-auto">
             <Image src="/logo-diaz.jpeg" width={100} height={50} />
           </div>

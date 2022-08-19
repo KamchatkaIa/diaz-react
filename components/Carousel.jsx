@@ -73,11 +73,14 @@ export default function Carousel (props) {
               alt={selectedImage} width={1500} height={600} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>
-            <div className="rounded bg-white bg-opacity-80 lg:bg-opacity-100 w-11/12 lg:w-2/5 xl:w-4/12 h-fit absolute flex flex-col content-center justify-center top-5 lg:top-1/4 left-4p lg:left-32 p-5">
+            {!selectedTitle
+              ? null
+              : <div className="rounded bg-white bg-opacity-80 lg:bg-opacity-100 w-11/12 lg:w-2/5 xl:w-4/12 h-fit absolute flex flex-col content-center justify-center top-5 lg:top-1/4 left-4p lg:left-32 p-5">
               <h2 className="text-clamp-h2">{selectedTitle}</h2>
               <p className="text-clamp-p">{selectedP}</p>
               { selectedLink && selectedPButton ? <Link href={selectedLink}><span className="rounded w-fit text-clamp-p2 cursor-pointer text-clamp-p p-3 bg-black text-white mt-4 mb-1 hover:bg-yellow-400 transition-all ease-in-out duration-300">{selectedPButton}</span></Link> : null }
             </div>
+            }
             {
               props.showButtons && (
                 <>

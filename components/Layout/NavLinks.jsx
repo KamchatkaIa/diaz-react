@@ -59,9 +59,9 @@ const NavLinks = () => {
           <>
             {navMenu.map((item, index) => {
               return (
-                <li key={index} className="text-white py-2 md:flex-col md:py-2">
+                <li key={index} className="text-white py-2 md:flex-col border-b-2 border-transparent transition-all duration-300 hover:border-amber-400 hover:transition-all hover:duration-300">
                   <Link href={item.href}>
-                    <a className="text-white flex flex-row content-center justify-start md:flex-col">
+                    <a className="flex flex-row content-center justify-start md:flex-col">
                     {item.icon && <Image className="fill-white" src={`/icons/menu/${item.icon}.svg`} width={20} height={20} />}
                      <p className={`md:px-0 ${item.icon ? 'px-5 md:pt-2' : ''}`}>{item.title}</p>
                     </a>

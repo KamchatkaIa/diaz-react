@@ -9,7 +9,9 @@ export default function Home () {
   ]
   return (
     <Layout title="Home" description="F. O. Diaz S.A., Concesionario Oficial Renault. Venta de autos 0km y planes de ahorro Plan Rombo. Accesorios y Service Oficial para tu Renault. Test Drive.">
-      <Carousel images={images} autoPlay={true} showButtons={true} interval={2000}/>
+      <div className="mt-24 lg:mt-20">
+        <Carousel images={images} autoPlay={true} showButtons={true} interval={2000}/>
+      </div>
     </Layout>
   )
 }
