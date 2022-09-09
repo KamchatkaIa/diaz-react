@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import DesktopNav from './DesktopNav'
+import Nav from './Nav'
 import Footer from './Footer'
 const Layout = ({ children, title, description }) => {
   return (
@@ -9,7 +9,7 @@ const Layout = ({ children, title, description }) => {
                 <meta name="description" content={description} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <DesktopNav />
+            <Nav />
             <div>
                 {children}
             </div>

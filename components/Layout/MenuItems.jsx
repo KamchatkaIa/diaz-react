@@ -3,10 +3,10 @@ import Dropdown from './Dropdown'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const MenuItems = ({ items, depthLevel, submenu }) => {
+const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }) => {
   const [dropdown, setDropdown] = useState(false)
   const ref = useRef()
-
+  // console.log(subitems[0].subitem)
   useEffect(() => {
     const handler = (event) => {
       if (
@@ -41,10 +41,10 @@ const MenuItems = ({ items, depthLevel, submenu }) => {
   const closeDropdown = () => {
     dropdown && setDropdown(false)
   }
-
+  console.log(listaAutos)
   return (
     <li
-      className="text-white py-2 md:flex-col lg:border-b-2 lg:border-transparent transition-all duration-300 lg:hover:border-amber-400 lg:hover:transition-all lg:hover:duration-300 relative"
+      className={`${condition ? 'lg:text-black text-white text-clamp-p2 md:px-4 md:py-4' : 'text-white'} ${autos ? 'bg-gray-700 top-0 -mt-2 absolute border-none' : 'lg:hover:border-amber-400'} py-2 md:flex-col lg:border-b-2 lg:border-transparent transition-all duration-300  lg:hover:transition-all lg:hover:duration-300 relative`}
       ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -83,6 +83,7 @@ const MenuItems = ({ items, depthLevel, submenu }) => {
             depthLevel={depthLevel}
             submenus={items.submenu}
             dropdown={dropdown}
+            subitems={subitems}
           />
         </>
           )
@@ -112,12 +113,14 @@ const MenuItems = ({ items, depthLevel, submenu }) => {
         </>
               )
             : (
-              <Link href={items.href}>
-                    <a className="flex flex-row content-center justify-start md:flex-col">
-                    {items.icon && <Image className="fill-white" src={`/icons/menu/${items.icon}.svg`} width={20} height={20} />}
-                     <p className={`md:px-0 ${items.icon ? 'px-5 md:pt-2' : ''}${submenu ? 'lg:text-black text-white text-clamp-p2 md:px-8 md:py-2' : ''}`}>{items.title}</p>
-                    </a>
-              </Link>
+              <>
+                <Link href={items.href ? items.href : ''}>
+                      <a className="flex flex-row content-center justify-start md:flex-col">
+                      {items.icon && <Image className="fill-white" src={`/icons/menu/${items.icon}.svg`} width={20} height={20} />}
+                      <p className={`md:px-0 ${items.icon ? 'px-5 md:pt-2' : ''}${condition ? 'lg:text-black text-white text-clamp-p2 md:pr-8 md:py-2' : ''}`}>{items.title ? items.title : items.auto ? items.auto : null}</p>
+                      </a>
+                </Link>
+              </>
               )}
     </li>
   )

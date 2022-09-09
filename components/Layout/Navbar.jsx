@@ -6,10 +6,48 @@ const navMenu = [{
   href: '#',
   submenu: [{
     title: 'Automoviles',
-    href: '/automoviles'
-  }, {
+    href: '#',
+    submenu: [
+      {
+        auto: 'Captur',
+        href: '/automoviles/captur'
+      },
+      {
+        auto: 'Logan',
+        href: '/automoviles/logan'
+      },
+      {
+        auto: 'Kangoo',
+        href: '/automoviles/kangoo'
+      },
+      {
+        auto: 'Sandero',
+        href: '/automoviles/sandero'
+      },
+      {
+        auto: 'Stepway',
+        href: '/automoviles/stepway'
+      },
+      {
+        auto: 'Duster',
+        href: '/automoviles/duster'
+      },
+      {
+        auto: 'Koleos',
+        href: '/automoviles/koleos'
+      }]
+  },
+  {
     title: 'Utilitarios',
-    href: '/utilitarios'
+    href: '/utilitarios',
+    submenu: [{
+      auto: 'Captur',
+      href: '/automoviles/captur'
+    },
+    {
+      auto: 'Logan',
+      href: '/automoviles/logan'
+    }]
   }, {
     title: 'Electricos',
     href: '/Electricos'
@@ -26,7 +64,8 @@ const navMenu = [{
   href: '#',
   submenu: [{
     title: 'Planes Vigentes',
-    href: '/planes'
+    href: '/planes',
+    submenu: [{}]
   }]
 }, {
   title: 'Usados',
@@ -72,6 +111,7 @@ const Navbar = () => {
           return (
             <MenuItems
               items={item}
+              subitems={item.submenu}
               key={index}
               depthLevel={depthLevel}
             />
