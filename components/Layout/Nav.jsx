@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Navbar from './Navbar'
 import Hamburguer from './Hamburguer'
 import { useState } from 'react'
@@ -11,7 +12,7 @@ const Nav = () => {
   return (
         <header className="flex flex-row flex-wrap justify-between bg-black px-1 lg:h-20 h-24 content-center fixed w-full z-50 top-0 lg:flex">
           <div className="text-white flex justify-center pr-2 w-auto">
-            <Image src="/logo-diaz.jpeg" width={100} height={50} />
+            <Link href='/'><Image src="/logo-diaz.jpeg" width={100} height={50} /></Link>
           </div>
           <nav className="flex items-center lg:w-10/12 justify-center flex-col nowrap content-center">
             <ul className="flex-row flex-nowrap justify-around items-end content-center w-full text-sm hidden lg:flex">

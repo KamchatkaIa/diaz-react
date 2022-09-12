@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import MenuItems from './MenuItems'
 const navMenu = [{
-  title: 'Vehiculos',
+  title: 'Vehículos',
   id: '0',
   href: '#',
   submenu: [{
@@ -10,73 +10,196 @@ const navMenu = [{
     submenu: [
       {
         auto: 'Captur',
-        href: '/automoviles/captur'
+        href: '/automoviles/captur',
+        img: '/automoviles/captur'
       },
       {
         auto: 'Logan',
-        href: '/automoviles/logan'
+        href: '/automoviles/logan',
+        img: '/automoviles/logan'
       },
       {
         auto: 'Kangoo',
-        href: '/automoviles/kangoo'
+        href: '/automoviles/kangoo',
+        img: '/automoviles/kangoo'
       },
       {
         auto: 'Sandero',
-        href: '/automoviles/sandero'
+        href: '/automoviles/sandero',
+        img: '/automoviles/sandero'
       },
       {
         auto: 'Stepway',
-        href: '/automoviles/stepway'
+        href: '/automoviles/stepway',
+        img: '/automoviles/stepway'
       },
       {
         auto: 'Duster',
-        href: '/automoviles/duster'
+        href: '/automoviles/duster',
+        img: '/automoviles/duster'
       },
       {
         auto: 'Koleos',
-        href: '/automoviles/koleos'
+        href: '/automoviles/koleos',
+        img: '/automoviles/koleos'
       }]
   },
   {
     title: 'Utilitarios',
     href: '/utilitarios',
-    submenu: [{
-      auto: 'Captur',
-      href: '/automoviles/captur'
-    },
-    {
-      auto: 'Logan',
-      href: '/automoviles/logan'
-    }]
+    submenu: [
+      {
+        auto: 'Kangoo Express',
+        href: '/utilitarios/kangoo-express',
+        img: '/utilitarios/kangoo-express'
+      },
+      {
+        auto: 'Master Furgón',
+        href: '/utilitarios/master-furgon',
+        img: '/utilitarios/master-furgon'
+      },
+      {
+        auto: 'Master Minibús',
+        href: '/utilitarios/kangoo-express',
+        img: '/utilitarios/kangoo-express'
+      },
+      {
+        auto: 'Nueva Oroch',
+        href: '/utilitarios/nueva-oroch',
+        img: '/utilitarios/nueva-oroch'
+      },
+      {
+        auto: 'Alaskan',
+        href: '/utilitarios/alaskan',
+        img: '/utilitarios/alaskan'
+      }
+    ]
   }, {
     title: 'Electricos',
-    href: '/Electricos'
+    href: '/electricos',
+    submenu: [
+      {
+        auto: 'Kangoo ZE',
+        href: '/electricos/kangoo-ze',
+        img: '/electricos/kangoo-ze'
+      }
+    ]
   }, {
     title: 'Pick Ups',
-    href: '/pickups'
-  }, {
-    title: 'Sports',
-    href: '/sports'
+    href: '/pickups',
+    submenu: [
+      {
+        auto: 'Nueva Oroch',
+        href: '/pickups/nueva-oroch',
+        img: '/pickups/nueva-oroch'
+      },
+      {
+        auto: 'Alaskan',
+        href: '/pickups/alaskan',
+        img: '/pickups/alaskan'
+      }
+    ]
   }]
 }, {
   title: 'Plan Rombo',
   id: '1',
   href: '#',
-  submenu: [{
-    title: 'Planes Vigentes',
-    href: '/planes',
-    submenu: [{}]
-  }]
+  submenu: [
+    {
+      title: 'Planes Vigentes',
+      href: '/planes',
+      submenu: [{}]
+    },
+    {
+      title: 'Imprimí tu Cuota',
+      href: '/imprimi-tu-cuota',
+      submenu: [{}]
+    },
+    {
+      title: 'Actos de Adjudicación',
+      href: '/actos-de-adjudicacion',
+      submenu: [
+        {
+          title: 'Resultados de Adjudicación',
+          href: '/resultados-adjudicacion'
+        }
+      ]
+    },
+    {
+      title: 'Información General',
+      href: '/informacion-general',
+      submenu: [{}]
+    }
+  ]
 }, {
   title: 'Usados',
   id: 'renaultSelection',
   href: '/usados'
 }, {
   title: 'Post Venta',
-  href: '/#'
+  href: '/post-venta',
+  submenu: [
+    {
+      title: 'Promociones',
+      href: '/promociones',
+      submenu: [{}]
+    },
+    {
+      title: 'Accesorios',
+      href: '/accesorios',
+      submenu: [{}]
+    },
+    {
+      title: 'Talleres',
+      href: '/talleres',
+      submenu: [{}]
+    },
+    {
+      title: 'Renault Minuto',
+      href: '/renault-minuto',
+      submenu: [{}]
+    },
+    {
+      title: 'Turnos Online',
+      href: '/turnos-online',
+      submenu: [{}]
+    }
+  ]
 }, {
   title: 'Empresas',
-  href: '/#'
+  href: '/#',
+  submenu: [
+    {
+      title: 'Renault PRO+',
+      href: '/renault-pro',
+      submenu: [{}]
+    },
+    {
+      title: 'Ventas Coorporativas',
+      href: '/ventas-coorporativas',
+      submenu: [{}]
+    },
+    {
+      title: 'Transformaciones',
+      href: '/transformaciones',
+      submenu: [{}]
+    },
+    {
+      title: 'Financiación',
+      href: '/financiación',
+      submenu: [{}]
+    },
+    {
+      title: 'Test Drive',
+      href: '/test-drive',
+      submenu: [{}]
+    },
+    {
+      title: 'Ventas Especiales',
+      href: '/ventas-especiales',
+      submenu: [{}]
+    }
+  ]
 }, {
   title: 'Suscribite online',
   href: '/#',

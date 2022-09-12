@@ -6,7 +6,6 @@ import Image from 'next/image'
 const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }) => {
   const [dropdown, setDropdown] = useState(false)
   const ref = useRef()
-  // console.log(subitems[0].subitem)
   useEffect(() => {
     const handler = (event) => {
       if (
@@ -41,10 +40,9 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
   const closeDropdown = () => {
     dropdown && setDropdown(false)
   }
-  console.log(listaAutos)
   return (
     <li
-      className={`${condition ? 'lg:text-black text-white text-clamp-p2 md:px-4 md:py-4' : 'text-white'} ${autos ? 'bg-gray-700 top-0 -mt-2 absolute border-none' : 'lg:hover:border-amber-400'} py-2 md:flex-col lg:border-b-2 lg:border-transparent transition-all duration-300  lg:hover:transition-all lg:hover:duration-300 relative`}
+      className={`${condition && !autos ? 'lg:text-black text-white text-clamp-p2 md:px-4 md:py-8 hover:bg-gray-200' : autos ? 'bg-white border-none md:px-4 md:py-4' : ' text-white lg:hover:border-amber-400'} py-3 md:flex-col lg:border-b-2 lg:border-transparent transition-all duration-300  lg:hover:transition-all lg:hover:duration-300 relative`}
       ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -115,9 +113,10 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
             : (
               <>
                 <Link href={items.href ? items.href : ''}>
-                      <a className="flex flex-row content-center justify-start md:flex-col">
+                      <a className={`${autos ? 'w-full' : 'flex flex-row content-center justify-start md:flex-col w-full'}`}>
                       {items.icon && <Image className="fill-white" src={`/icons/menu/${items.icon}.svg`} width={20} height={20} />}
-                      <p className={`md:px-0 ${items.icon ? 'px-5 md:pt-2' : ''}${condition ? 'lg:text-black text-white text-clamp-p2 md:pr-8 md:py-2' : ''}`}>{items.title ? items.title : items.auto ? items.auto : null}</p>
+                      {items.img && <Image className="" src={`${items.img}.png`} width={140} height={90} />}
+                      <p className={`md:px-0 ${items.icon ? 'px-5 md:pt-2' : ''} ${condition && !autos ? 'lg:text-black text-white text-clamp-p2 w-full' : autos ? 'lg:p-0 lg:m-0 w-full text-center' : ''} `}>{items.title ? items.title : items.auto ? items.auto : null}</p>
                       </a>
                 </Link>
               </>

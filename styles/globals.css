@@ -104,3 +104,12 @@
     left: 100%;
     top: -2px;
   }
+
+  .dropdown.show-autos {
+    display: block;
+  }
+  .dropdown .dropdown-submenu-autos {
+    position: fixed;
+    left: 16.5%;
+    top: 10%;
+  }
