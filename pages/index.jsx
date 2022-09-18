@@ -15,7 +15,7 @@ export default function Home () {
       </div>
       <div className="container flex flex-col text-center flex-nowrap content-center justify-center items-center py-4">
         <h3 className="text-clamp-title font-bold">¡INGRESÁ AL MUNDO DE LOS VEHÍCULOS RENAULT!</h3>
-        <div className=" w-3/4">
+        <div className="w-4/5 my-10">
           <Tabs />
         </div>
       </div>

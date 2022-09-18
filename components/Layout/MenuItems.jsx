@@ -71,7 +71,7 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
               : depthLevel > 0 &&
               window.innerWidth > 960
                 ? (
-              <span>&raquo;</span>
+              <span></span>
                   )
                 : (
               <span className="arrow" />
@@ -97,7 +97,7 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
             {items.title}{' '}
             {depthLevel > 0
               ? (
-              <span>&raquo;</span>
+              <span></span>
                 )
               : (
               <span className="arrow" />

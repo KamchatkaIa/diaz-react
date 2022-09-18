@@ -108,12 +108,12 @@ const navMenu = [{
     {
       title: 'Planes Vigentes',
       href: '/planes',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Imprimí tu Cuota',
       href: '/imprimi-tu-cuota',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Actos de Adjudicación',
@@ -128,7 +128,7 @@ const navMenu = [{
     {
       title: 'Información General',
       href: '/informacion-general',
-      submenu: [{}]
+      submenu: []
     }
   ]
 }, {
@@ -142,27 +142,27 @@ const navMenu = [{
     {
       title: 'Promociones',
       href: '/promociones',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Accesorios',
       href: '/accesorios',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Talleres',
       href: '/talleres',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Renault Minuto',
       href: '/renault-minuto',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Turnos Online',
       href: '/turnos-online',
-      submenu: [{}]
+      submenu: []
     }
   ]
 }, {
@@ -172,32 +172,32 @@ const navMenu = [{
     {
       title: 'Renault PRO+',
       href: '/renault-pro',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Ventas Coorporativas',
       href: '/ventas-coorporativas',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Transformaciones',
       href: '/transformaciones',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Financiación',
       href: '/financiación',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Test Drive',
       href: '/test-drive',
-      submenu: [{}]
+      submenu: []
     },
     {
       title: 'Ventas Especiales',
       href: '/ventas-especiales',
-      submenu: [{}]
+      submenu: []
     }
   ]
 }, {
