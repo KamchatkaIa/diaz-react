@@ -23,6 +23,12 @@
 .top-11p{
     top: 11%;
 }
+.left-90{
+  left: 90%;
+}
+.bottom-90{
+  bottom: 90%;
+}
 
 .nav-area {
     display: flex;

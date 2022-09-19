@@ -45,81 +45,40 @@ const dataTabs = [
     value: 'eléctricos',
     autos: [
       {
-        nombre: 'Captur',
-        precio: '4.993.000,00',
-        href: 'captur'
-      },
-      {
-        nombre: 'Logan',
-        precio: '3.309.000,00',
-        href: 'logan'
-      },
-      {
-        nombre: 'Kangoo',
-        precio: '4.431.100,00',
-        href: 'kangoo'
-      },
-      {
-        nombre: 'Sandero',
-        precio: '3.321.400,00',
-        href: 'sandero'
-      },
-      {
-        nombre: 'Stepway',
-        precio: '3.800.000,00',
-        href: 'stepway'
-      },
-      {
-        nombre: 'Duster',
-        precio: '4.664.300,00',
-        href: 'duster'
-      },
-      {
-        nombre: 'Koleos',
-        precio: '9.677.300,00',
-        href: 'koleos'
+        nombre: 'Kangoo ZE',
+        precio: '7.773.700,00',
+        href: 'electricos/kangoo-ze'
       }
     ]
   },
-
   {
     label: 'Utilitarios',
     value: 'utilitarios',
     autos: [
       {
-        nombre: 'Captur',
-        precio: '4.993.000,00',
-        href: 'captur'
+        nombre: 'Kangoo Express',
+        precio: '4.310.300,00',
+        href: 'utilitarios/kangoo-express'
       },
       {
-        nombre: 'Logan',
-        precio: '3.309.000,00',
-        href: 'logan'
+        nombre: 'Master Furgón',
+        precio: '8.390.500,00',
+        href: 'utilitarios/master-furgon'
       },
       {
-        nombre: 'Kangoo',
-        precio: '4.431.100,00',
-        href: 'kangoo'
+        nombre: 'Master Minibús',
+        precio: '12.267.000,00',
+        href: 'utilitarios/master-minibus'
       },
       {
-        nombre: 'Sandero',
-        precio: '3.321.400,00',
-        href: 'sandero'
+        nombre: 'Nueva Oroch',
+        precio: '5.814.600,00',
+        href: 'utilitarios/nueva-oroch'
       },
       {
-        nombre: 'Stepway',
-        precio: '3.800.000,00',
-        href: 'stepway'
-      },
-      {
-        nombre: 'Duster',
-        precio: '4.664.300,00',
-        href: 'duster'
-      },
-      {
-        nombre: 'Koleos',
-        precio: '9.677.300,00',
-        href: 'koleos'
+        nombre: 'Alaskan',
+        precio: '6.627.800,00',
+        href: 'utilitarios/alaskan'
       }
     ]
   },
@@ -129,39 +88,14 @@ const dataTabs = [
     value: 'pick-ups',
     autos: [
       {
-        nombre: 'Captur',
-        precio: '4.993.000,00',
-        href: 'captur'
+        nombre: 'Nueva Oroch',
+        precio: '5.814.600,00',
+        href: 'pickups/nueva-oroch'
       },
       {
-        nombre: 'Logan',
-        precio: '3.309.000,00',
-        href: 'logan'
-      },
-      {
-        nombre: 'Kangoo',
-        precio: '4.431.100,00',
-        href: 'kangoo'
-      },
-      {
-        nombre: 'Sandero',
-        precio: '3.321.400,00',
-        href: 'sandero'
-      },
-      {
-        nombre: 'Stepway',
-        precio: '3.800.000,00',
-        href: 'stepway'
-      },
-      {
-        nombre: 'Duster',
-        precio: '4.664.300,00',
-        href: 'duster'
-      },
-      {
-        nombre: 'Koleos',
-        precio: '9.677.300,00',
-        href: 'koleos'
+        nombre: 'Alaskan',
+        precio: '6.627.800,00',
+        href: 'pickups/alaskan'
       }
     ]
   }

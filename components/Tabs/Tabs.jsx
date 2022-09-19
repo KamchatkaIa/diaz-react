@@ -7,7 +7,7 @@ import {
 } from '@material-tailwind/react'
 
 import dataTabs from '../../json/dataTabs'
-import ListaAutos from '../ListaAutos'
+import ListaAutosTabs from '../ListaAutosTabs'
 
 export default function Example () {
   return (
@@ -22,7 +22,7 @@ export default function Example () {
       <TabsBody>
         {dataTabs.map(({ value, autos }) => (
           <TabPanel key={value} value={value}>
-            <ListaAutos autos={autos} />
+            <ListaAutosTabs autos={autos} />
           </TabPanel>
         ))}
       </TabsBody>

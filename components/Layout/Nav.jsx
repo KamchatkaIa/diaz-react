@@ -11,8 +11,8 @@ const Nav = () => {
   }
   return (
         <header className="flex flex-row flex-wrap justify-between bg-black px-1 lg:h-20 h-24 content-center fixed w-full z-50 top-0 lg:flex">
-          <div className="text-white flex justify-center pr-2 w-auto">
-            <Link href='/'><Image src="/logo-diaz.jpeg" width={100} height={50} /></Link>
+          <div className="flex justify-center pr-2 w-auto">
+            <Link href='/'><a className="w-full flex justify-center items-center"><Image src="/logo-diaz.jpeg" width={90} height={50} layout='fixed' /></a></Link>
           </div>
           <nav className="flex items-center lg:w-10/12 justify-center flex-col nowrap content-center">
             <ul className="flex-row flex-nowrap justify-around items-end content-center w-full text-sm hidden lg:flex">
@@ -27,8 +27,8 @@ const Nav = () => {
               </ul>
             </div>
           </nav>
-          <div className="text-white lg:flex justify-center pr-2 w-auto hidden">
-            <Image src="/logo-nuevo-renault.png" width={50} height={50} />
+          <div className="text-white lg:flex justify-center pr-2 w-auto hidden items-center">
+            <Image src="/logo-nuevo-renault.png" width={50} height={50} layout='fixed' />
           </div>
         </header>
   )
