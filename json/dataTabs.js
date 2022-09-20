@@ -90,12 +90,12 @@ const dataTabs = [
       {
         nombre: 'Nueva Oroch',
         precio: '5.814.600,00',
-        href: 'pickups/nueva-oroch'
+        href: 'pick-ups/nueva-oroch'
       },
       {
         nombre: 'Alaskan',
         precio: '6.627.800,00',
-        href: 'pickups/alaskan'
+        href: 'pick-ups/alaskan'
       }
     ]
   }

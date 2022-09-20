@@ -5,7 +5,7 @@ const navMenu = [{
   id: '0',
   href: '#',
   submenu: [{
-    title: 'Automoviles',
+    title: 'Automóviles',
     href: 'automoviles',
     submenu: [
       {
@@ -75,7 +75,7 @@ const navMenu = [{
       }
     ]
   }, {
-    title: 'Electricos',
+    title: 'Eléctricos',
     href: '/electricos',
     submenu: [
       {
@@ -86,16 +86,16 @@ const navMenu = [{
     ]
   }, {
     title: 'Pick Ups',
-    href: '/pickups',
+    href: '/pick-ups',
     submenu: [
       {
         auto: 'Nueva Oroch',
-        href: '/pickups/nueva-oroch',
+        href: '/pick-ups/nueva-oroch',
         img: '/pickups/nueva-oroch'
       },
       {
         auto: 'Alaskan',
-        href: '/pickups/alaskan',
+        href: '/pick-ups/alaskan',
         img: '/pickups/alaskan'
       }
     ]

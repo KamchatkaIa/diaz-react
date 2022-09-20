@@ -18,7 +18,7 @@ const Dropdown = ({ submenus, dropdown, depthLevel, subitems }) => {
   const dropdownClass = depthLevel > 1 && !autos ? 'dropdown-submenu' : depthLevel > 1 && autos ? 'dropdown-submenu-autos' : ''
   return (
       <div className={`${autos ? 'ml-0 w-full h-4/5' : 'bg-white top-16 left-0 w-full h-max mt-2.5 lg:border-none block md:fixed'} dropdown ${dropdownClass} ${dropdown && !autos ? 'show' : dropdown && autos ? 'show-autos' : ''}`}>
-      <ul className={`${autos ? 'border-r-0 border-l-2 border-amber-400 w-max grid grid-cols-4 gap-3' : 'lg:border-r-2 lg:hover:border-amber-400 lg:border-amber-400 lg:w-1/6 w-full md:flex-col  lg:hover:transition-all lg:hover:duration-300 lg:bg-white bg-gray-600 pl-2 md:pl-0'}  `}>
+      <ul className={`${autos ? 'border-r-0 border-l-2 border-amber-400 w-max grid grid-cols-4 gap-3' : 'lg:border-r-2 lg:hover:border-amber-400 lg:border-amber-400 lg:w-1/6 w-full md:flex-col  lg:hover:transition-all lg:hover:duration-300 lg:bg-white bg-gray-900 pl-2 md:pl-0'}  `}>
         {submenus.length !== 0
           ? submenus.map((submenu, index) => (
           <MenuItems

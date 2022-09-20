@@ -22,7 +22,7 @@ const Nav = () => {
               <Hamburguer open={open} handleClick={handleClick}/>
             </div>
             <div className="overflow-hidden lg:hidden">
-              <ul className={`fixed w-full h-auto bg-gray-700 flex nowrap flex-col top-11p z-50 left-0 justify-around content-center text-lg uppercase transition-all duration-500 px-4 py-2 border-y-4 border-amber-400 ${open ? ' translate-x-0' : ' translate-x-full'}`}>
+              <ul className={`fixed w-full h-auto bg-black flex nowrap flex-col top-11p z-50 left-0 justify-around content-center text-lg transition-all duration-500 px-4 py-2 border-y-4 border-amber-400 ${open ? ' translate-x-0' : ' translate-x-full'}`}>
             <Navbar />
               </ul>
             </div>
