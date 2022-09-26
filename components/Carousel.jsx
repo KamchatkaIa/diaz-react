@@ -3,11 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Carousel (props) {
+  const auto = props.images.map(image => image.auto)
   const imgs = props.images.map(image => image.img)
   const titles = props.images.map(image => image.title)
   const ps = props.images.map(image => image.p)
   const links = props.images.map(image => image.link)
   const pButtons = props.images.map(image => image.pBoton)
+  const [isAuto, setIsAuto] = useState(null)
+  const [imgTablet, setImgTablet] = useState(null)
+  const [imgMobile, setImgMobile] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [selectedImage, setSelectedImage] = useState(imgs[0])
   const [selectedTitle, setSelectedTitle] = useState(titles[0])
@@ -16,10 +20,28 @@ export default function Carousel (props) {
   const [selectedPButton, setSelectedPButton] = useState(pButtons[0])
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
-    if (props.autoPlay || !props.showButtons) {
+    if (auto.includes(true)) {
+      setIsAuto(true)
+      const imgesTablet = props.images.filter(image => image.imgTablet)
+      setImgTablet(imgesTablet[0].imgTablet)
+      const imgesMobile = props.images.filter(image => image.imgMobile)
+      setImgMobile(imgesMobile[0].imgMobile)
+    } else {
+      setIsAuto(false)
+    }
+  }, [auto])
+  useEffect(() => {
+    if (props.autoPlay === true && !props.showButtons) {
       const Interval = setInterval(() => {
         selectNewImage(selectedIndex, imgs)
       }, props.interval)
+      return () => {
+        clearInterval(Interval)
+      }
+    } else if (!props.interval || props.interval === undefined) {
+      const Interval = setInterval(() => {
+        selectNewImage(selectedIndex, imgs)
+      }, 100000)
       return () => {
         clearInterval(Interval)
       }
@@ -51,25 +73,25 @@ export default function Carousel (props) {
           <div className="w-full h-auto relative box-border touch-pan-y">
             <div className="md:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={`/caroussel/mobile/${selectedImage}-mobile.jpeg`}
+              src={isAuto === false ? `/caroussel/mobile/${selectedImage}-mobile.jpeg` : isAuto === true ? `http://localhost:1337${imgMobile}` : '/loading.webp'}
               alt={selectedImage} width={480} height={450} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>
             <div className="hidden md:block lg:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={`/caroussel/tablet/${selectedImage}-tablet.jpeg`}
+              src={isAuto === false ? `/caroussel/tablet/${selectedImage}-tablet.jpeg` : isAuto === true ? `http://localhost:1337${imgTablet}` : '/loading.webp' }
               alt={selectedImage} width={768} height={720} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>
             <div className="hidden lg:block xl:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={`/caroussel/${selectedImage}.jpeg`}
-              alt={selectedImage} width={1200} height={400} onLoad={() => setLoaded(true) } layout="responsive"
+              src={isAuto === false ? `/caroussel/${selectedImage}.jpeg` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp' }
+              alt={selectedImage} width={1000} height={400} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>
             <div className="hidden xl:block">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={`/caroussel/${selectedImage}.jpeg`}
+              src={isAuto === false ? `/caroussel/${selectedImage}.jpeg` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp'}
               alt={selectedImage} width={1500} height={600} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>

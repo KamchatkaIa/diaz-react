@@ -10,92 +10,92 @@ const navMenu = [{
     submenu: [
       {
         auto: 'Captur',
-        href: '/automoviles/captur',
+        href: 'automoviles/captur',
         img: '/automoviles/captur'
       },
       {
         auto: 'Logan',
-        href: '/automoviles/logan',
+        href: 'automoviles/logan',
         img: '/automoviles/logan'
       },
       {
         auto: 'Kangoo',
-        href: '/automoviles/kangoo',
+        href: 'automoviles/kangoo',
         img: '/automoviles/kangoo'
       },
       {
         auto: 'Sandero',
-        href: '/automoviles/sandero',
+        href: 'automoviles/sandero',
         img: '/automoviles/sandero'
       },
       {
         auto: 'Stepway',
-        href: '/automoviles/stepway',
+        href: 'automoviles/stepway',
         img: '/automoviles/stepway'
       },
       {
         auto: 'Duster',
-        href: '/automoviles/duster',
+        href: 'automoviles/duster',
         img: '/automoviles/duster'
       },
       {
         auto: 'Koleos',
-        href: '/automoviles/koleos',
+        href: 'automoviles/koleos',
         img: '/automoviles/koleos'
       }]
   },
   {
     title: 'Utilitarios',
-    href: '/utilitarios',
+    href: 'utilitarios',
     submenu: [
       {
         auto: 'Kangoo Express',
-        href: '/utilitarios/kangoo-express',
+        href: 'utilitarios/kangoo-express',
         img: '/utilitarios/kangoo-express'
       },
       {
         auto: 'Master Furgón',
-        href: '/utilitarios/master-furgon',
+        href: 'utilitarios/master-furgon',
         img: '/utilitarios/master-furgon'
       },
       {
         auto: 'Master Minibús',
-        href: '/utilitarios/kangoo-express',
+        href: 'utilitarios/kangoo-express',
         img: '/utilitarios/kangoo-express'
       },
       {
         auto: 'Nueva Oroch',
-        href: '/utilitarios/nueva-oroch',
+        href: 'utilitarios/nueva-oroch',
         img: '/utilitarios/nueva-oroch'
       },
       {
         auto: 'Alaskan',
-        href: '/utilitarios/alaskan',
+        href: 'utilitarios/alaskan',
         img: '/utilitarios/alaskan'
       }
     ]
   }, {
     title: 'Eléctricos',
-    href: '/electricos',
+    href: 'electricos',
     submenu: [
       {
         auto: 'Kangoo ZE',
-        href: '/electricos/kangoo-ze',
+        href: 'electricos/kangoo-ze',
         img: '/electricos/kangoo-ze'
       }
     ]
   }, {
     title: 'Pick Ups',
-    href: '/pick-ups',
+    href: 'pick-ups',
     submenu: [
       {
         auto: 'Nueva Oroch',
-        href: '/pick-ups/nueva-oroch',
+        href: 'pick-ups/nueva-oroch',
         img: '/pickups/nueva-oroch'
       },
       {
         auto: 'Alaskan',
-        href: '/pick-ups/alaskan',
+        href: 'pick-ups/alaskan',
         img: '/pickups/alaskan'
       }
     ]
@@ -107,118 +107,118 @@ const navMenu = [{
   submenu: [
     {
       title: 'Planes Vigentes',
-      href: '/planes',
+      href: 'planes',
       submenu: []
     },
     {
       title: 'Imprimí tu Cuota',
-      href: '/imprimi-tu-cuota',
+      href: 'imprimi-tu-cuota',
       submenu: []
     },
     {
       title: 'Actos de Adjudicación',
-      href: '/actos-de-adjudicacion',
+      href: 'actos-de-adjudicacion',
       submenu: [
         {
           title: 'Resultados de Adjudicación',
-          href: '/resultados-adjudicacion'
+          href: 'resultados-adjudicacion'
         }
       ]
     },
     {
       title: 'Información General',
-      href: '/informacion-general',
+      href: 'informacion-general',
       submenu: []
     }
   ]
 }, {
   title: 'Usados',
   id: 'renaultSelection',
-  href: '/usados'
+  href: 'usados'
 }, {
   title: 'Post Venta',
-  href: '/post-venta',
+  href: 'post-venta',
   submenu: [
     {
       title: 'Promociones',
-      href: '/promociones',
+      href: 'promociones',
       submenu: []
     },
     {
       title: 'Accesorios',
-      href: '/accesorios',
+      href: 'accesorios',
       submenu: []
     },
     {
       title: 'Talleres',
-      href: '/talleres',
+      href: 'talleres',
       submenu: []
     },
     {
       title: 'Renault Minuto',
-      href: '/renault-minuto',
+      href: 'renault-minuto',
       submenu: []
     },
     {
       title: 'Turnos Online',
-      href: '/turnos-online',
+      href: 'turnos-online',
       submenu: []
     }
   ]
 }, {
   title: 'Empresas',
-  href: '/#',
+  href: '#',
   submenu: [
     {
       title: 'Renault PRO+',
-      href: '/renault-pro',
+      href: 'renault-pro',
       submenu: []
     },
     {
       title: 'Ventas Coorporativas',
-      href: '/ventas-coorporativas',
+      href: 'ventas-coorporativas',
       submenu: []
     },
     {
       title: 'Transformaciones',
-      href: '/transformaciones',
+      href: 'transformaciones',
       submenu: []
     },
     {
       title: 'Financiación',
-      href: '/financiación',
+      href: 'financiación',
       submenu: []
     },
     {
       title: 'Test Drive',
-      href: '/test-drive',
+      href: 'test-drive',
       submenu: []
     },
     {
       title: 'Ventas Especiales',
-      href: '/ventas-especiales',
+      href: 'ventas-especiales',
       submenu: []
     }
   ]
 }, {
   title: 'Suscribite online',
-  href: '/#',
+  href: '#',
   icon: 'subscribe'
 }, {
   title: 'Sucursales',
-  href: '/#',
+  href: '#',
   icon: 'sucursales'
 }, {
   title: 'Tienda Online',
-  href: '/#',
+  href: '#',
   icon: 'tienda'
 }, {
   title: 'Mi Plan Rombo',
-  href: '/#',
+  href: '#',
   icon: 'sucursales'
 }, {
   title: 'My Renault',
-  href: '/#',
+  href: '#',
   icon: 'my-renault'
 }
 ]

@@ -62,7 +62,7 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
                   items.title
                 )
               : (
-              <Link href={items.href}>{items.title}</Link>
+              <Link href={`/${items.href}`}>{items.title}</Link>
                 )}
 
             {depthLevel > 0 &&
@@ -112,7 +112,7 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
               )
             : (
               <>
-                <Link href={items.href ? items.href : ''}>
+                <Link href={items.href ? `/${items.href}` : ''}>
                       <a className={`${autos ? 'w-full' : 'flex flex-row content-center justify-start md:flex-col w-full'}`}>
                       {items.icon && <Image className="fill-white" src={`/icons/menu/${items.icon}.svg`} width={20} height={20} />}
                       {items.img && <Image className="" src={`${items.img}.png`} width={140} height={90} />}

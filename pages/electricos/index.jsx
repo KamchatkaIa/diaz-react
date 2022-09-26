@@ -5,7 +5,7 @@ const automoviles = () => {
   return (
         <Layout title="Eléctricos">
           <div className="w-full flex flex-col justify-center items-center text-center mt-24 lg:mt-20">
-          <h2 className="text-clamp-h2 font-bold py-6">ELECTRICOS</h2>
+          <h2 className="text-clamp-h2 font-bold py-6">ELÉCTRICOS</h2>
             {dataElectricos.map(({ value, autos }) => (
                 <ListaAutos key={value} autos={autos} />
             ))}

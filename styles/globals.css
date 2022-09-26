@@ -20,6 +20,9 @@
 .text-clamp-p2{
     font-size: clamp(.8rem, 2.5vw, 1rem);
 }
+.text-clamp-p3{
+  font-size: clamp(.6rem, 2.5vw, 1rem);
+}
 .top-11p{
     top: 11%;
 }
@@ -118,4 +121,73 @@
     position: fixed;
     left: 16.5%;
     top: 10%;
+  }
+
+  .first-of-type{
+    top: 0px;
+    left: 13vw;
+    width: 27vw;
+    height: 14vw;
+  }
+
+  .second-of-type{
+    top: 15vw;
+    left: 7vw;
+    width: 33vw;
+    height: 20vw;
+    transition: all .5s ease-out .2s;
+  }
+
+  .third-of-type{
+    top: 23vw;
+    left: 41vw;
+    width: 20vw;
+    height: 12vw;
+    transition: all .5s ease-out .4s;
+  }
+
+  .fourth-of-type{
+    top: 23vw;
+    left: 62vw;
+    width: 25vw;
+    height: 16vw;
+    transition: all .6s ease-out .6s;
+  }
+
+  .fifth-of-type{
+    top: 36vw;
+    left: 26vw;
+    width: 35vw;
+    height: 20vw;
+    transition: all .6s ease-out .8s;
+  }
+
+  .sixth-of-type{
+    top: 40vw;
+    left: 62vw;
+    width: 25vw;
+    height: 16vw;
+    transition: all .7s ease-out 1s;
+  }
+
+  .gallery-title{
+    left: 40vw;
+    width: 40vw;
+  }
+
+  @media (max-width: 960px){
+    .gallery-mobile{
+      display: block;
+      width: calc(50% - 16px);
+      min-height: 30vw;
+      margin: 8px 0 0 8px;
+    }
+    .gallery-title{
+      left: 0;
+      width: 100%;
+    }
+    .first-of-type, .second-of-type, .third-of-type, .fourth-of-type, .fifth-of-type, .sixth-of-type{
+      top: 0;
+      left: 0;
+    }
   }
