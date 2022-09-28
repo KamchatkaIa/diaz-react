@@ -41,7 +41,7 @@ export default function Carousel (props) {
     } else if (!props.interval || props.interval === undefined) {
       const Interval = setInterval(() => {
         selectNewImage(selectedIndex, imgs)
-      }, 100000)
+      }, 500000)
       return () => {
         clearInterval(Interval)
       }

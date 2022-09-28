@@ -222,6 +222,7 @@ const navMenu = [{
   icon: 'my-renault'
 }
 ]
+
 const Navbar = () => {
   const [menu, setMenu] = useState([])
   useEffect(() => {
