@@ -5,6 +5,8 @@ import Link from 'next/link'
 export default function Carousel (props) {
   const auto = props.images.map(image => image.auto)
   const imgs = props.images.map(image => image.img)
+  const tablet = props.images.map(image => image.tablet)
+  const mobile = props.images.map(image => image.mobile)
   const titles = props.images.map(image => image.title)
   const ps = props.images.map(image => image.p)
   const links = props.images.map(image => image.link)
@@ -14,6 +16,8 @@ export default function Carousel (props) {
   const [imgMobile, setImgMobile] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [selectedImage, setSelectedImage] = useState(imgs[0])
+  const [selectedTablet, setSelectedTablet] = useState(tablet[0])
+  const [selectedMobile, setSelectedMobile] = useState(mobile[0])
   const [selectedTitle, setSelectedTitle] = useState(titles[0])
   const [selectedP, setSelectedP] = useState(ps[0])
   const [selectedLink, setSelectedLink] = useState(links[0])
@@ -33,27 +37,29 @@ export default function Carousel (props) {
   useEffect(() => {
     if (props.autoPlay === true && !props.showButtons) {
       const Interval = setInterval(() => {
-        selectNewImage(selectedIndex, imgs)
+        selectNewImage(selectedIndex, imgs, tablet, mobile)
       }, props.interval)
       return () => {
         clearInterval(Interval)
       }
     } else if (!props.interval || props.interval === undefined) {
       const Interval = setInterval(() => {
-        selectNewImage(selectedIndex, imgs)
+        selectNewImage(selectedIndex, imgs, tablet, mobile)
       }, 500000)
       return () => {
         clearInterval(Interval)
       }
     }
-  }, [selectedIndex, imgs, props.autoPlay])
+  }, [selectedIndex, imgs, tablet, mobile, props.autoPlay])
 
-  const selectNewImage = (index, images, next = true) => {
+  const selectNewImage = (index, images, tablet, mobile, next = true) => {
     setLoaded(false)
     setTimeout(() => {
       const condition = next ? selectedIndex < images.length - 1 : selectedIndex > 0
       const nextIndex = next ? condition ? selectedIndex + 1 : 0 : condition ? selectedIndex - 1 : images.length - 1
       setSelectedImage(images[nextIndex])
+      setSelectedTablet(tablet[nextIndex])
+      setSelectedMobile(mobile[nextIndex])
       setSelectedTitle(titles[nextIndex])
       setSelectedP(ps[nextIndex])
       setSelectedLink(links[nextIndex])
@@ -63,35 +69,35 @@ export default function Carousel (props) {
   }
 
   const previus = () => {
-    selectNewImage(selectedIndex, imgs, false)
+    selectNewImage(selectedIndex, imgs, tablet, mobile, false)
   }
   const next = () => {
-    selectNewImage(selectedIndex, imgs)
+    selectNewImage(selectedIndex, imgs, tablet, mobile)
   }
   return (
         <>
           <div className="w-full h-auto relative box-border touch-pan-y">
             <div className="md:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={isAuto === false ? `/caroussel/mobile/${selectedImage}-mobile.jpeg` : isAuto === true ? `http://localhost:1337${imgMobile}` : '/loading.webp'}
-              alt={selectedImage} width={480} height={450} onLoad={() => setLoaded(true) } layout="responsive"
+              src={isAuto === false ? `http://localhost:1337${selectedMobile}` : isAuto === true ? `http://localhost:1337${imgMobile}` : '/loading.webp'}
+              alt={selectedMobile} width={480} height={450} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>
             <div className="hidden md:block lg:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={isAuto === false ? `/caroussel/tablet/${selectedImage}-tablet.jpeg` : isAuto === true ? `http://localhost:1337${imgTablet}` : '/loading.webp' }
-              alt={selectedImage} width={768} height={720} onLoad={() => setLoaded(true) } layout="responsive"
+              src={isAuto === false ? `http://localhost:1337${selectedTablet}` : isAuto === true ? `http://localhost:1337${imgTablet}` : '/loading.webp' }
+              alt={selectedTablet} width={768} height={720} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>
             <div className="hidden lg:block xl:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={isAuto === false ? `/caroussel/${selectedImage}.jpeg` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp' }
+              src={isAuto === false ? `http://localhost:1337${selectedImage}` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp' }
               alt={selectedImage} width={1000} height={400} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>
             <div className="hidden xl:block">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
-              src={isAuto === false ? `/caroussel/${selectedImage}.jpeg` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp'}
+              src={isAuto === false ? `http://localhost:1337${selectedImage}` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp'}
               alt={selectedImage} width={1500} height={600} onLoad={() => setLoaded(true) } layout="responsive"
               />
             </div>

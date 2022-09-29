@@ -6,11 +6,10 @@ import IconTestDrive from '../components/icons/icon-test-drive'
 import IconAsesor from '../components/icons/icon-asesor'
 import IconArrow from '../components/icons/icon-arrow'
 
-export default function Home () {
+export default function Home ({ slider }) {
   const images = [
-    { img: '1', title: 'Compra tu Usado', p: 'Los mejores precios del Mercado', auto: false },
-    { img: '2', link: 'usados', pBoton: 'Comprar2', title: 'Compra tu Usado 2', p: 'Los mejores precios del Mercado 2', auto: false },
-    { img: '3', link: 'usados', pBoton: 'Comprar3', title: 'Compra tu Usado 3', p: 'Los mejores precios del Mercado 3', auto: false }
+    { img: slider.data.attributes.Sliders[0].ImgDesktop.data.attributes.url, title: slider.data.attributes.Sliders[0].Title, p: slider.data.attributes.Sliders[0].subtitle, auto: false, tablet: slider.data.attributes.Sliders[0].ImgTablet.data.attributes.url, mobile: slider.data.attributes.Sliders[0].ImgMobile.data.attributes.url },
+    { img: slider.data.attributes.Sliders[1].ImgDesktop.data.attributes.url, link: slider.data.attributes.Sliders[1].Link, pBoton: slider.data.attributes.Sliders[1].TextButton, title: slider.data.attributes.Sliders[1].Title, p: slider.data.attributes.Sliders[1].subtitle, auto: false, tablet: slider.data.attributes.Sliders[1].ImgTablet.data.attributes.url, mobile: slider.data.attributes.Sliders[1].ImgMobile.data.attributes.url }
   ]
   return (
     <Layout title="Home" description="F. O. Diaz S.A., Concesionario Oficial Renault. Venta de autos 0km y planes de ahorro Plan Rombo. Accesorios y Service Oficial para tu Renault. Test Drive.">
@@ -45,4 +44,14 @@ export default function Home () {
       </div>
     </Layout>
   )
+}
+
+export async function getServerSideProps () {
+  const data = await fetch(`${process.env.API_URL}/slider-home/?populate=Sliders.ImgDesktop&populate=Sliders.ImgTablet&populate=Sliders.ImgMobile`)
+  const sliderData = await data.json()
+  return {
+    props: {
+      slider: sliderData
+    }
+  }
 }

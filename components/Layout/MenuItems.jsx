@@ -42,7 +42,7 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
   }
   return (
     <li
-      className={`${condition && !autos ? 'lg:text-black text-white text-clamp-p2 md:px-4 md:py-8 hover:bg-gray-200' : autos ? 'bg-white border-none md:px-4 md:py-4' : ' text-white lg:hover:border-amber-400'} py-3 md:flex-col lg:border-b-2 lg:border-transparent transition-all duration-300  lg:hover:transition-all lg:hover:duration-300 relative`}
+      className={`${condition && !autos ? 'lg:text-black text-white text-clamp-p2 hover:bg-gray-200' : autos ? 'bg-white border-none md:px-4 md:py-4' : ' text-white lg:hover:border-amber-400'} py-3 md:flex-col lg:border-b-2 lg:border-transparent transition-all duration-300  lg:hover:transition-all lg:hover:duration-300 relative`}
       ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -51,32 +51,35 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
       {items.href && items.submenu
         ? (
         <>
-          <button
-            type="button"
-            aria-haspopup="menu"
-            aria-expanded={dropdown ? 'true' : 'false'}
-            onClick={() => setDropdown((prev) => !prev)}
-          >
-            { typeof window !== 'undefined' && window.innerWidth < 960 && depthLevel === 0
-              ? (
-                  items.title
-                )
-              : (
-              <Link href={`/${items.href}`}>{items.title}</Link>
-                )}
-
-            {depthLevel > 0 &&
-            window.innerWidth < 960
-              ? null
-              : depthLevel > 0 &&
-              window.innerWidth > 960
+            <button
+              className="flex"
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={dropdown ? 'true' : 'false'}
+              onClick={() => setDropdown((prev) => !prev)}
+            >
+              { typeof window !== 'undefined' && window.innerWidth < 960 && depthLevel === 0
                 ? (
-              <span></span>
+                    items.title
                   )
                 : (
-              <span className="arrow" />
+                <Link href={`/${items.href}`}>
+                  <a className={`${condition && !autos ? 'md:py-4 md:w-40 lg:w-52 w-52 text-start pl-4' : ' '} `} >{items.title}</a>
+                </Link>
                   )}
-          </button>
+
+              {depthLevel > 0 &&
+              window.innerWidth < 960
+                ? null
+                : depthLevel > 0 &&
+                window.innerWidth > 960
+                  ? (
+                <span></span>
+                    )
+                  : (
+                <span className="arrow" />
+                    )}
+            </button>
           <Dropdown
             depthLevel={depthLevel}
             submenus={items.submenu}

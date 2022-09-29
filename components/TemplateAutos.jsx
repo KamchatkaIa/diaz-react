@@ -29,49 +29,17 @@ const TemplateAutos = ({ props, propsEquip }) => {
                       </div>
                   </div>
                   <ul className="relative flex flex-row flex-wrap list-none m-0 p-0">
-
-                    <li className="relative block lg:absolute lg:translate-x-0 first-of-type lg:px-0 gallery-mobile">
-                      <a role="button">
-                        <figure className="lg:relative flex h-full overflow-hidden align-baseline">
-                          <Image className="lg:absolute lg:scale-100 overflow-hidden lg:w-auto h-full" src={`http://localhost:1337${props.data.attributes.Gallery.data[0].attributes.url}`} layout="fill" />
-                        </figure>
-                        </a>
-                    </li>
-                    <li className="relative block lg:absolute translate-x-0 second-of-type lg:px-0 gallery-mobile">
-                      <a role="button">
-                        <figure className="lg:relative flex h-full overflow-hidden align-baseline">
-                          <Image className="absolute scale-100 overflow-hidden w-full h-full transition-all duration-300" src={`http://localhost:1337${props.data.attributes.Gallery.data[1].attributes.url}`} layout="fill" />
-                        </figure>
-                        </a>
-                    </li>
-                    <li className="relative block lg:absolute translate-x-0 third-of-type lg:px-0 gallery-mobile">
-                      <a role="button">
-                        <figure className="lg:relative flex h-full overflow-hidden align-baseline">
-                          <Image className="absolute scale-100 overflow-hidden w-full h-full transition-all duration-300" src={`http://localhost:1337${props.data.attributes.Gallery.data[2].attributes.url}`} layout="fill" />
-                        </figure>
-                        </a>
-                    </li>
-                    <li className="relative block lg:absolute translate-x-0 fourth-of-type lg:px-0 gallery-mobile">
-                      <a role="button">
-                        <figure className="lg:relative flex h-full overflow-hidden align-baseline">
-                          <Image className="absolute scale-100 overflow-hidden w-full h-full transition-all duration-300" src={`http://localhost:1337${props.data.attributes.Gallery.data[3].attributes.url}`} layout="fill" />
-                        </figure>
-                        </a>
-                    </li>
-                    <li className="relative block lg:absolute translate-x-0 fifth-of-type lg:px-0 gallery-mobile">
-                      <a role="button">
-                        <figure className="lg:relative flex h-full overflow-hidden align-baseline">
-                          <Image className="absolute scale-100 overflow-hidden w-full h-full transition-all duration-300" src={`http://localhost:1337${props.data.attributes.Gallery.data[4].attributes.url}`} layout="fill" />
-                        </figure>
-                        </a>
-                    </li>
-                    <li className="relative block lg:absolute translate-x-0 sixth-of-type lg:px-0 gallery-mobile">
-                      <a role="button">
-                        <figure className="lg:relative flex h-full overflow-hidden align-baseline">
-                          <Image className="absolute scale-100 overflow-hidden w-full h-full transition-all duration-300" src={`http://localhost:1337${props.data.attributes.Gallery.data[5].attributes.url}`} layout="fill" />
-                        </figure>
-                        </a>
-                    </li>
+                    {props.data.attributes.SixGallery.data.map((item, index) => {
+                      return (
+                        <li key={index} className={`relative block lg:absolute lg:translate-x-0 ${item.attributes.name.split('-')[0]}-of-type lg:px-0 gallery-mobile`}>
+                          <a role="button">
+                            <figure className="lg:relative flex h-full overflow-hidden align-baseline">
+                              <Image className="lg:absolute lg:scale-100 overflow-hidden lg:w-auto h-full" src={`http://localhost:1337${item.attributes.url}`} layout="fill" />
+                            </figure>
+                          </a>
+                          </li>
+                      )
+                    }) }
 
                   </ul>
               </div>
