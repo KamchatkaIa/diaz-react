@@ -35,17 +35,17 @@ export default function Carousel (props) {
     }
   }, [auto])
   useEffect(() => {
-    if (props.autoPlay === true && !props.showButtons) {
+    if (props.autoPlay === true && props.interval && imgs.length > 1) {
       const Interval = setInterval(() => {
         selectNewImage(selectedIndex, imgs, tablet, mobile)
       }, props.interval)
       return () => {
         clearInterval(Interval)
       }
-    } else if (!props.interval || props.interval === undefined) {
+    } else if (!props.interval || props.interval === undefined || imgs.length === 1) {
       const Interval = setInterval(() => {
         selectNewImage(selectedIndex, imgs, tablet, mobile)
-      }, 500000)
+      }, 5000000)
       return () => {
         clearInterval(Interval)
       }
@@ -110,7 +110,7 @@ export default function Carousel (props) {
             </div>
             }
             {
-              props.showButtons && (
+              props.showButtons && imgs.length > 1 && (
                 <>
                   <button className="text-white bg-black px-3 py-2 my-s4 rounded ml-4 absolute top-2/4 float-left left-0 hover:bg-yellow-400 transition-all ease-in-out duration-300" onClick={previus}>{'<'}</button>
                   <button className="text-white bg-black px-3 py-2 my-s4 rounded mr-4 absolute top-2/4 float-right right-0 hover:bg-yellow-400 transition-all ease-in-out duration-300" onClick={next}>{'>'}</button>

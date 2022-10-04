@@ -7,14 +7,15 @@ import IconAsesor from '../components/icons/icon-asesor'
 import IconArrow from '../components/icons/icon-arrow'
 
 export default function Home ({ slider }) {
-  const images = [
-    { img: slider.data.attributes.Sliders[0].ImgDesktop.data.attributes.url, title: slider.data.attributes.Sliders[0].Title, p: slider.data.attributes.Sliders[0].subtitle, auto: false, tablet: slider.data.attributes.Sliders[0].ImgTablet.data.attributes.url, mobile: slider.data.attributes.Sliders[0].ImgMobile.data.attributes.url },
-    { img: slider.data.attributes.Sliders[1].ImgDesktop.data.attributes.url, link: slider.data.attributes.Sliders[1].Link, pBoton: slider.data.attributes.Sliders[1].TextButton, title: slider.data.attributes.Sliders[1].Title, p: slider.data.attributes.Sliders[1].subtitle, auto: false, tablet: slider.data.attributes.Sliders[1].ImgTablet.data.attributes.url, mobile: slider.data.attributes.Sliders[1].ImgMobile.data.attributes.url }
-  ]
+  const images = slider.data.attributes.Sliders.map((item) => {
+    return (
+      { img: item.ImgDesktop.data.attributes.url, tablet: item.ImgTablet.data.attributes.url, mobile: item.ImgMobile.data.attributes.url, title: item.Title, p: item.subtitle, link: item.Link, pBoton: item.TextButton, auto: item.Auto }
+    )
+  })
   return (
     <Layout title="Home" description="F. O. Diaz S.A., Concesionario Oficial Renault. Venta de autos 0km y planes de ahorro Plan Rombo. Accesorios y Service Oficial para tu Renault. Test Drive.">
       <div className="mt-24 lg:mt-20">
-        <Carousel images={images} autoPlay={true} showButtons={true} interval={2000}/>
+        <Carousel images={images} autoPlay={slider.data.attributes.autoPlay} showButtons={slider.data.attributes.showButtons} interval={slider.data.attributes.interval}/>
       </div>
       <div className="flex flex-col text-center flex-nowrap content-center justify-center items-center py-10">
         <h3 className="text-clamp-title font-bold">¡INGRESÁ AL MUNDO DE LOS VEHÍCULOS RENAULT!</h3>
@@ -46,7 +47,7 @@ export default function Home ({ slider }) {
   )
 }
 
-export async function getServerSideProps () {
+export async function getStaticProps () {
   const data = await fetch(`${process.env.API_URL}/slider-home/?populate=Sliders.ImgDesktop&populate=Sliders.ImgTablet&populate=Sliders.ImgMobile`)
   const sliderData = await data.json()
   return {
