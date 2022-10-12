@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import Form from './Form'
 const TemplateAutos = ({ props }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center text-center">
@@ -80,12 +81,7 @@ const TemplateAutos = ({ props }) => {
           </div>
 
           <div className="md:w-4/12 w-full grid bg-black p-2 rounded">
-
-            <div>
-              <h4>hola1</h4>
-              <p>hola1</p>
-            </div>
-
+              <Form />
           </div>
         </div>
         <p className="text-clamp-p2 text-start mt-6">*Los precios pueden sufrir modificaciones sin previo aviso. Imágenes no contractuales.</p>
