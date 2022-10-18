@@ -1,8 +1,8 @@
 import { useState } from 'react'
-const Form = ({ vehiculo }) => {
+const FormsRombo = ({ tipo }) => {
   const [enviado, setEnviado] = useState(false)
   const [datos, setDatos] = useState({
-    form: vehiculo || '',
+    form: tipo || '',
     nombre: '',
     email: '',
     cod: '',
@@ -29,7 +29,7 @@ const Form = ({ vehiculo }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (datos.nombre.length > 2 && datos.email.length > 2) {
-      fetch('http://localhost:1337/api/forms', {
+      fetch('http://localhost:1337/api/forms-rombos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -70,8 +70,8 @@ const Form = ({ vehiculo }) => {
               <h4 className="text-clamp-title text-white text-start">Contactanos</h4>
               <div className=" w-full h-1 bg-amber-400"></div>
               <p className="text-white text-start text-clamp-p2">Estamos a tu disposición y deseamos responder a tu consulta rápidamente y con precisión. <br /> Por favor, completá la siguiente información.</p>
-              {vehiculo
-                ? <input type="hidden" name="vehiculo" value={vehiculo} />
+              {tipo
+                ? <input type="hidden" name="tipo" value={tipo} />
                 : null
               }
               <div className="w-full text-start">
@@ -117,7 +117,7 @@ const Form = ({ vehiculo }) => {
                 </div>
               </div>
 
-              {vehiculo === 'imprimiTuCuota'
+              {tipo === 'imprimiTuCuota'
                 ? <div className="w-full text-start">
                   <input required
                     onChange={handleChange}
@@ -208,4 +208,4 @@ const Form = ({ vehiculo }) => {
   )
 }
 
-export default Form
+export default FormsRombo

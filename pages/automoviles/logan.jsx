@@ -24,7 +24,7 @@ const logan = ({ logan }) => {
 export default logan
 
 export async function getStaticProps () {
-  const data = await fetch(`${process.env.API_URL}/automovils/2?populate=SixGallery&populate=Equipamiento.ImgEquipamiento&populate=ImgCarrouselDesktop&populate=ImgCarrouselTablet&populate=ImgCarrouselMobile`)
+  const data = await fetch(`${process.env.API_URL}/automovils/2?populate=SixGallery&populate=Equipamiento.ImgEquipamiento&populate=ImgCarrouselDesktop&populate=ImgCarrouselTablet&populate=ImgCarrouselMobile&populate=Versiones.imgVersion`)
   const LoganData = await data.json()
   return {
     props: {

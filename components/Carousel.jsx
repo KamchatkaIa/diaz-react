@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 export default function Carousel (props) {
   const auto = props.images.map(image => image.auto)
@@ -23,6 +24,7 @@ export default function Carousel (props) {
   const [selectedLink, setSelectedLink] = useState(links[0])
   const [selectedPButton, setSelectedPButton] = useState(pButtons[0])
   const [loaded, setLoaded] = useState(false)
+
   useEffect(() => {
     if (auto.includes(true)) {
       setIsAuto(true)
@@ -74,39 +76,40 @@ export default function Carousel (props) {
   const next = () => {
     selectNewImage(selectedIndex, imgs, tablet, mobile)
   }
+
   return (
         <>
           <div className="w-full h-auto relative box-border touch-pan-y">
             <div className="md:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
               src={isAuto === false ? `http://localhost:1337${selectedMobile}` : isAuto === true ? `http://localhost:1337${imgMobile}` : '/loading.webp'}
-              alt={selectedMobile} width={480} height={450} onLoad={() => setLoaded(true) } layout="responsive"
+              alt={selectedMobile} width={480} height={450} onLoad={() => setLoaded(true) } layout="responsive" quality={80}
               />
             </div>
             <div className="hidden md:block lg:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
               src={isAuto === false ? `http://localhost:1337${selectedTablet}` : isAuto === true ? `http://localhost:1337${imgTablet}` : '/loading.webp' }
-              alt={selectedTablet} width={768} height={720} onLoad={() => setLoaded(true) } layout="responsive"
+              alt={selectedTablet} width={768} height={720} onLoad={() => setLoaded(true) } layout="responsive" quality={80}
               />
             </div>
             <div className="hidden lg:block xl:hidden">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
               src={isAuto === false ? `http://localhost:1337${selectedImage}` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp' }
-              alt={selectedImage} width={1000} height={400} onLoad={() => setLoaded(true) } layout="responsive"
+              alt={selectedImage} width={1000} height={400} onLoad={() => setLoaded(true) } layout="responsive" quality={80}
               />
             </div>
             <div className="hidden xl:block">
               <Image className={`w-full h-auto opacity-0 transition ease-in-out duration-1000 ${loaded ? 'loaded' : ''}`}
               src={isAuto === false ? `http://localhost:1337${selectedImage}` : isAuto === true ? `http://localhost:1337${selectedImage}` : '/loading.webp'}
-              alt={selectedImage} width={1500} height={600} onLoad={() => setLoaded(true) } layout="responsive"
+              alt={selectedImage} width={1500} height={600} onLoad={() => setLoaded(true) } layout="responsive" quality={80}
               />
             </div>
             {!selectedTitle
               ? null
-              : <div className="rounded bg-white bg-opacity-80 lg:bg-opacity-100 w-11/12 lg:w-2/5 xl:w-4/12 h-fit absolute flex flex-col content-center justify-center top-5 lg:top-1/4 left-4p lg:left-32 p-5">
-              <h2 className="text-clamp-h2">{selectedTitle}</h2>
-              <p className="text-clamp-p">{selectedP}</p>
-              { selectedLink && selectedPButton ? <Link href={selectedLink}><span className="rounded w-fit text-clamp-p2 cursor-pointer text-clamp-p p-3 bg-black text-white mt-4 mb-1 hover:bg-yellow-400 transition-all ease-in-out duration-300">{selectedPButton}</span></Link> : null }
+              : <div className={isAuto === false ? 'rounded bg-white bg-opacity-80 lg:bg-opacity-100 w-11/12 lg:w-3/5 xl:w-5/12 h-fit absolute flex flex-col content-center justify-center top-5 lg:top-1/4 left-4p lg:left-32 p-5' : 'rounded bg-white bg-opacity-70 lg:bg-opacity-80 w-11/12 lg:w-fit xl:w-fit h-fit absolute flex flex-col content-center justify-center top-5 lg:top-1/4 left-4p lg:left-32 px-7 py-5' }>
+              <h2 className={isAuto === false ? 'text-clamp-h2 font-bold' : isAuto === true ? 'text-clamp-h2 font-bold text-center' : 'text-clamp-h2 font-bold' }>{selectedTitle}</h2>
+              <ReactMarkdown className="text-clamp-p3">{selectedP}</ReactMarkdown>
+              { selectedLink && selectedPButton ? <Link href={selectedLink}><p className="text-clamp-p3 rounded w-fit cursor-pointer p-3 bg-black text-white mt-4 mb-1 hover:bg-yellow-400 hover:text-black transition-all ease-in-out duration-300">{selectedPButton}</p></Link> : null }
             </div>
             }
             {

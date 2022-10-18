@@ -65,13 +65,13 @@ const TemplateAutos = ({ props }) => {
       <div className="lg:mt-16 mt-8 w-full flex flex-col justify-center items-center text-center px-10 py-10 bg-gray-200">
         <h3 className="text-clamp-h2 font-bold">Conocé sus versiones</h3>
         <p className="text-clamp-p">Hay una versión para cada una de tus expectativas</p>
-        <div className="w-full flex flex-col md:flex-row gap-3 mt-3">
-          <div className="grid md:grid-cols-3 grid-cols-1 md:w-8/12 w-full rounded gap-4 p-2">
+        <div className="w-full flex flex-col md:flex-row gap-3 mt-8">
+          <div className="grid md:grid-cols-3 grid-cols-1 md:w-8/12 w-full rounded gap-4 p-2 h-fit">
 
             {props.data.attributes.Versiones
               ? props.data.attributes.Versiones.map((version, index) => {
                 return (
-                <div key={index} className="p-2 rounded bg-white border-2 shadow-md">
+                <div key={index} className="p-2 rounded bg-white border-2 shadow-md h-fit">
                   <Image src={`http://localhost:1337${version.imgVersion.data.attributes.url}`} width="300" height="200" layout="responsive" />
                   <h5 className="text-clamp-title font-bold text-center p-3">{version.Name}</h5>
                 </div>
@@ -81,7 +81,7 @@ const TemplateAutos = ({ props }) => {
           </div>
 
           <div className="md:w-4/12 w-full grid bg-black p-2 rounded">
-              <Form />
+              <Form vehiculo={props.data.attributes.Name} />
           </div>
         </div>
         <p className="text-clamp-p2 text-start mt-6">*Los precios pueden sufrir modificaciones sin previo aviso. Imágenes no contractuales.</p>

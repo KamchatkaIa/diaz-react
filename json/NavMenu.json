@@ -112,7 +112,7 @@
         "submenu": [
             {
                 "title": "Planes Vigentes",
-                "href": "planes",
+                "href": "planes-vigentes",
                 "submenu": []
             },
             {
