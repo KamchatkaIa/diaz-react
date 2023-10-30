@@ -12,6 +12,7 @@ export default function Home ({ slider }) {
       { img: item.ImgDesktop.data.attributes.url, tablet: item.ImgTablet.data.attributes.url, mobile: item.ImgMobile.data.attributes.url, title: item.Title, p: item.subtitle, link: item.Link, pBoton: item.TextButton, auto: item.Auto }
     )
   })
+  console.log(images)
   return (
     <Layout title="Home" description="F. O. Diaz S.A., Concesionario Oficial Renault. Venta de autos 0km y planes de ahorro Plan Rombo. Accesorios y Service Oficial para tu Renault. Test Drive.">
       <div className="mt-24 lg:mt-20">

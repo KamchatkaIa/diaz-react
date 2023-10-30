@@ -1,8 +1,9 @@
 import { useState } from 'react'
-const FormsRombo = ({ tipo }) => {
+const FormsRombo = ({ tipo, usadoConsult, usados }) => {
   const [enviado, setEnviado] = useState(false)
   const [datos, setDatos] = useState({
     form: tipo || '',
+    modelo: '',
     nombre: '',
     email: '',
     cod: '',
@@ -11,6 +12,8 @@ const FormsRombo = ({ tipo }) => {
     typeClient: '',
     provincias: '',
     coments: '',
+    nGrupo: '',
+    ofertaLici: '',
     condiciones: true
   })
   const handleChange = (e) => {
@@ -37,6 +40,7 @@ const FormsRombo = ({ tipo }) => {
         body: JSON.stringify({
           data: {
             Form: datos.form,
+            Modelo: datos.modelo,
             NombreApellido: datos.nombre,
             Email: datos.email,
             Codigo: datos.cod,
@@ -45,6 +49,8 @@ const FormsRombo = ({ tipo }) => {
             TipoDeCliente: datos.typeClient,
             Provincia: datos.provincias,
             Comentarios: datos.coments,
+            NGrupo: datos.nGrupo,
+            OfertaLici: datos.ofertaLici,
             Condiciones: datos.condiciones
           }
         })
@@ -69,7 +75,10 @@ const FormsRombo = ({ tipo }) => {
             <div className="flex gap-y-4 flex-wrap col content-start justify-start items-start">
               <h4 className="text-clamp-title text-white text-start">Contactanos</h4>
               <div className=" w-full h-1 bg-amber-400"></div>
-              <p className="text-white text-start text-clamp-p2">Estamos a tu disposición y deseamos responder a tu consulta rápidamente y con precisión. <br /> Por favor, completá la siguiente información.</p>
+              {tipo === 'actosAdjudicacion'
+                ? <p className="text-white text-start text-clamp-p2">Enviá tu oferta de Licitación y empezá a disfrutar de tu 0KM</p>
+                : <p className="text-white text-start text-clamp-p2">Estamos a tu disposición y deseamos responder a tu consulta rápidamente y con precisión. <br /> Por favor, completá la siguiente información.</p>
+               }
               {tipo
                 ? <input type="hidden" name="tipo" value={tipo} />
                 : null
@@ -146,47 +155,87 @@ const FormsRombo = ({ tipo }) => {
                 />
               </div>
 
+              {tipo === 'usados'
+                ? <div className="w-full text-start">
+                    <select required id="modelo" name="modelo" value={datos.modelo} onChange={handleChange} className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm">
+                      <option defaultValue="default" >Seleccionar modelo de Interés</option>
+                      { usados.data.map((usado, index) => {
+                        return (
+                          <option key={index} value={usado.attributes.Nombre} >{usado.attributes.Nombre}</option>
+                        )
+                      }) }
+                    </select>
+                  </div>
+                : null
+               }
+
               <div className="w-full text-start">
                 <select required id="typeClient" name="typeClient" value={datos.typeClient} onChange={handleChange} className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm">
-                  <option defaultValue="default">Tipo de Cliente</option>
+                  <option defaultValue="default" >Tipo de Cliente</option>
                   <option value="particular" >Particular</option>
                   <option value="empresa" >Empresa</option>
                 </select>
               </div>
-
-              <select required name="provincias" id="provincias" value={datos.provincias} onChange={handleChange} className=" p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm" >
-                   <option defaultValue="default" >Provincia</option>
-                   <option value="Capital Federal">Capital Federal</option>
-                   <option value="GBA Norte">GBA Norte</option>
-                   <option value="GBA Sur">GBA Sur</option>
-                   <option value="GBA Oeste">GBA Oeste</option>
-                   <option value="Costa Atlántica">Costa Atlántica</option>
-                   <option value="Buenos Aires">Buenos Aires</option>
-                   <option value="Catamarca">Catamarca</option>
-                   <option value="Chaco">Chaco</option>
-                   <option value="Chubut">Chubut</option>
-                   <option value="Cordoba">Cordoba</option>
-                   <option value="Corrientes">Corrientes</option>
-                   <option value="Entre Rios">Entre Rios</option>
-                   <option value="Formosa">Formosa</option>
-                   <option value="Jujuy">Jujuy</option>
-                   <option value="La Pampa">La Pampa</option>
-                   <option value="La Rioja">La Rioja</option>
-                   <option value="Mendoza">Mendoza</option>
-                   <option value="Misiones">Misiones</option>
-                   <option value="Neuquen">Neuquen</option>
-                   <option value="Rio Negro">Rio Negro</option>
-                   <option value="Salta">Salta</option>
-                   <option value="San Juan">San Juan</option>
-                   <option value="San Luis">San Luis</option>
-                   <option value="Santa Cruz">Santa Cruz</option>
-                   <option value="Santa Fe">Santa Fe</option>
-                   <option value="Santiago del Estero">Santiago del Estero</option>
-                   <option value="Tierra del Fuego">Tierra del Fuego</option>
-                   <option value="Tucuman">Tucuman</option>
-                 </select>
-
-                 <textarea placeholder="Comentarios" type="text" name="coments" id="coments" title="Comentarios" value={datos.coments} onChange={handleChange} className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm"></textarea>
+               {tipo === 'actosAdjudicacion'
+                 ? <>
+                    <div className="w-full text-start">
+                        <input required
+                          onChange={handleChange}
+                          value={datos.nGrupo}
+                          type="text"
+                          name="nGrupo"
+                          id="nGrupo"
+                          autoComplete="nGrupo"
+                          placeholder="Número de Grupo y Orden"
+                          className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm"
+                        />
+                      </div>
+                      <div className="w-full text-start">
+                        <input required
+                          onChange={handleChange}
+                          value={datos.ofertaLici}
+                          type="text"
+                          name="ofertaLici"
+                          id="ofertaLici"
+                          autoComplete="ofertaLici"
+                          placeholder="Oferta de Licitación"
+                          className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm"
+                        />
+                      </div>
+                  </>
+                 : <><select required name="provincias" id="provincias" value={datos.provincias} onChange={handleChange} className=" p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm">
+                    <option defaultValue="default">Provincia</option>
+                    <option value="Capital Federal">Capital Federal</option>
+                    <option value="GBA Norte">GBA Norte</option>
+                    <option value="GBA Sur">GBA Sur</option>
+                    <option value="GBA Oeste">GBA Oeste</option>
+                    <option value="Costa Atlántica">Costa Atlántica</option>
+                    <option value="Buenos Aires">Buenos Aires</option>
+                    <option value="Catamarca">Catamarca</option>
+                    <option value="Chaco">Chaco</option>
+                    <option value="Chubut">Chubut</option>
+                    <option value="Cordoba">Cordoba</option>
+                    <option value="Corrientes">Corrientes</option>
+                    <option value="Entre Rios">Entre Rios</option>
+                    <option value="Formosa">Formosa</option>
+                    <option value="Jujuy">Jujuy</option>
+                    <option value="La Pampa">La Pampa</option>
+                    <option value="La Rioja">La Rioja</option>
+                    <option value="Mendoza">Mendoza</option>
+                    <option value="Misiones">Misiones</option>
+                    <option value="Neuquen">Neuquen</option>
+                    <option value="Rio Negro">Rio Negro</option>
+                    <option value="Salta">Salta</option>
+                    <option value="San Juan">San Juan</option>
+                    <option value="San Luis">San Luis</option>
+                    <option value="Santa Cruz">Santa Cruz</option>
+                    <option value="Santa Fe">Santa Fe</option>
+                    <option value="Santiago del Estero">Santiago del Estero</option>
+                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                    <option value="Tucuman">Tucuman</option>
+                  </select>
+                  <textarea placeholder="Comentarios" type="text" name="coments" id="coments" title="Comentarios" value={datos.coments} onChange={handleChange} className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-400 focus:ring-amber-400 sm:text-sm"></textarea></>
+                }
 
                  <input className="w-1/12" type="checkbox" name="condiciones" id="condiciones" value="true" onChange={handleChangeCheck} checked={datos.condiciones} />
                  <label htmlFor="condiciones" className="text-start w-11/12 block text-white text-clamp-p3 lg:text-xs">(*) Acepto recibir información en mi dirección de correo electrónico.</label>

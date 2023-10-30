@@ -122,18 +122,13 @@
             },
             {
                 "title": "Actos de Adjudicación",
-                "href": "actos-de-adjudicacion",
+                "href": "acto-adjudicacion",
                 "submenu": [
                     {
                         "title": "Resultados de Adjudicación",
-                        "href": "resultados-adjudicacion"
+                        "href": "resultado-acto"
                     }
                 ]
-            },
-            {
-                "title": "Información General",
-                "href": "informacion-general",
-                "submenu": []
             }
         ]
     },
@@ -144,7 +139,7 @@
     },
     {
         "title": "Post Venta",
-        "href": "post-venta",
+        "href": "#",
         "submenu": [
             {
                 "title": "Promociones",
@@ -168,7 +163,8 @@
             },
             {
                 "title": "Turnos Online",
-                "href": "turnos-online",
+                "href": "",
+                "link": "https://turnosweb.oversoftdms.net:8020/Turnos/Index?token=d263b3309e2b4fbc98d013a44792fbfe",
                 "submenu": []
             }
         ]

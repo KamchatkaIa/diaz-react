@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.verde-link{
+  background-color: #408a7e;
+}
+
 .loaded{
     opacity: 1;
 }
@@ -22,6 +26,10 @@
 }
 .text-clamp-p3{
   font-size: clamp(.8rem, 2.5vw, .8rem);
+}
+.text-legales{
+  font-size: 13px;
+  color: #636363;
 }
 .top-11p{
     top: 11%;
@@ -173,6 +181,10 @@
   .gallery-title{
     left: 40vw;
     width: 40vw;
+  }
+
+  ul#accesorios li:nth-child(even){
+    background-color: #ecf0f1;
   }
 
   @media (max-width: 960px){

@@ -48,7 +48,7 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
       onMouseLeave={onMouseLeave}
       onClick={closeDropdown}
     >
-      {items.href && items.submenu
+      {(items.href || items.link) && items.submenu
         ? (
         <>
             <button
@@ -63,7 +63,7 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
                     items.title
                   )
                 : (
-                <Link href={`/${items.href}`}>
+                <Link href={items.href && !items.link ? `/${items.href}` : (items.link && !items.href) ? items.link : ''}>
                   <a className={`${condition && !autos ? 'md:py-4 md:w-40 lg:w-52 w-52 text-start pl-4' : ' '} `} >{items.title}</a>
                 </Link>
                   )}
@@ -115,7 +115,8 @@ const MenuItems = ({ items, depthLevel, condition, subitems, autos, listaAutos }
               )
             : (
               <>
-                <Link href={items.href ? `/${items.href}` : ''}>
+                <Link href={items.href !== '' ? `/${items.href}` : (items.link) ? items.link : ''}>
+                      
                       <a className={`${autos ? 'w-full' : 'flex flex-row content-center justify-start md:flex-col w-full'}`}>
                       {items.icon && <Image className="fill-white" src={`/icons/menu/${items.icon}.svg`} width={20} height={20} />}
                       {items.img && <Image className="" src={`${items.img}.png`} width={140} height={90} />}
